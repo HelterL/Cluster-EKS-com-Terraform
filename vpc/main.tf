@@ -33,7 +33,7 @@ resource "aws_eip" "eip_nat" {
 resource "aws_nat_gateway" "main" {
   count = var.number_private_subnets
   allocation_id = "${element(aws_eip.eip_nat.*.id, count.index)}"
-  subnet_id = "${element(aws_subnet.private.*.id, count.index)}"
+  subnet_id = "${element(aws_subnet.public.*.id, count.index)}"
   depends_on = [ aws_internet_gateway.main ]
   
   tags = {

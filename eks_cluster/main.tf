@@ -9,6 +9,6 @@ resource "aws_eks_cluster" "clustereks" {
   }
 
   depends_on = [
-    var.iam_role_policy_attach,
+    
   ]
 }
